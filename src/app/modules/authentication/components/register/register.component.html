@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col col-md"></div>
+    <div class="col-10 col-md-6">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <h4 class="text-center"> Registro de usuarios </h4>
+        <label> Correo Electrónico </label>
+        <!-- <i class="fa fa-check-circle check"
+           *ngIf="registerForm.controls['email'].valid">
+        </i>
+        <i class="fa fa-exclamation-circle uncheck"
+           *ngIf="registerForm.controls['email'].invalid && registerForm.controls['email'].touched">
+        </i> -->
+        <input type="mail" class="form-control mb-2"
+               id="inputEmail" autofocus
+               formControlName="email">
+        <!-- <div class="alert alert-warning alert-dismissible fade show mt-2" role="alert" *ngIf="errorsForm.email">
+          {{ errorsForm.email }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div> -->
+        <label> Contraseña </label>
+        <!-- <i class="fa fa-check-circle check"
+           *ngIf="registerForm.controls['password'].valid">
+        </i>
+        <i class="fa fa-exclamation-circle uncheck"
+           *ngIf="registerForm.controls['password'].invalid && registerForm.controls['password'].touched">
+        </i> -->
+        <input type="password" class="form-control" id="inputPassword" formControlName="password">
+        <!-- <div class="alert alert-warning alert-dismissible fade show mt-2" role="alert" *ngIf="errorsForm.password">
+          {{ errorsForm.password }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div> -->
+        <hr>
+
+        <button type="submit" class="btn btn-success w-100"> REGISTRARSE </button>
+        <!-- <button type="submit" class="btn btn-success w-100" data-toggle="modal" data-target="#registerModal"
+        [disabled]="!registerForm.valid"> REGISTRARSE </button> -->
+      </form>
+      <!-- <p class="text-center"> ¿Ya tienes cuenta? <a routerLink="/login"> Entrar </a></p> -->
+    </div>
+    <div class="col col-md"></div>
+  </div>
+
+  <!-- Modal -->
+  <!-- <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="registerModalLabel"> Registro de usuarios </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          <p class="text-center"> El registro se ha realizado correctamente. <br>
+            Se le ha enviado un email de verificación para activar su cuenta. <br>
+            Una vez verificada podrá iniciar sesión.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal" routerLink="/login"> Continuar </button>
+        </div>
+      </div>
+    </div>
+  </div> -->

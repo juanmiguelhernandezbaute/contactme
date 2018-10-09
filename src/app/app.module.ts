@@ -1,14 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './common/components/navbar/navbar.component';
+import { RegisterComponent } from './modules/authentication/components/register/register.component';
 import { HomeComponent } from './common/components/home/home.component';
 import { ContactsComponent } from './modules/contacts/components/contacts/contacts.component';
 
 import { ContactsService } from './modules/contacts/services/contacts.service';
-import { NavbarComponent } from './common/components/navbar/navbar.component';
+import { AuthenticationService } from './modules/authentication/services/authentication.service';
+
+import { AuthenticationModule } from './modules/authentication/authentication.module';
+
 
 @NgModule({
   declarations: [
@@ -19,9 +26,16 @@ import { NavbarComponent } from './common/components/navbar/navbar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpModule,
+    AppRoutingModule,
+    AuthenticationModule
   ],
-  providers: [ContactsService],
+  providers: [
+    ContactsService,
+    AuthenticationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
