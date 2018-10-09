@@ -3,14 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
+import { ContactsService } from './modules/contacts/services/contacts.service';
+import { ContactsComponent } from './modules/contacts/components/contacts/contacts.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ContactsComponent
   ],
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [ContactsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
