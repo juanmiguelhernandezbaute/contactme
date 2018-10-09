@@ -1,18 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
+import { HomeComponent } from './common/components/home/home.component';
+import { ContactsComponent } from './modules/contacts/components/contacts/contacts.component';
 
 import { ContactsService } from './modules/contacts/services/contacts.service';
-import { ContactsComponent } from './modules/contacts/components/contacts/contacts.component';
+import { NavbarComponent } from './common/components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContactsComponent
+    ContactsComponent,
+    HomeComponent,
+    NavbarComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [ContactsService],
   bootstrap: [AppComponent]
