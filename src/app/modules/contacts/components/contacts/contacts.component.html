@@ -1,0 +1,19 @@
+<h3>Listado de Contactos</h3>
+<table class="table table-bordered table-striped mt-3">
+  <thead>
+    <tr class="filters">
+      <th>Nombre</th>
+      <th>Apellidos</th>
+      <th>Teléfono</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let contact of contacts">
+      <td>{{ contact.firstName }}</td>
+      <td>{{ contact.lastName }}</td>
+      <td>{{ contact.telephone }}</td>
+      <td><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></td>
+    </tr>
+  </tbody>
+</table>
