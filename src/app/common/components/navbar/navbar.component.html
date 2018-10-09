@@ -7,28 +7,21 @@
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <!-- <div class="collapse navbar-collapse" *ngIf="isAuth()" id="navbarNavAltMarkup"> -->
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+  <div class="collapse navbar-collapse" *ngIf="isAuth()" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <ul class="navbar-nav mr-auto w-100 justify-content-end">
-        <!-- <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" *ngIf="isAuth()"> -->
-        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" >
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" *ngIf="isAuth()">
           <a class="nav-link" routerLink="/home">
             <i class="fas fa-home mr-1"></i>Inicio</a>
         </li>
-        <!-- <li class="nav-item" routerLinkActive="active" *ngIf="isAuth()"> -->
-        <li class="nav-item" routerLinkActive="active" >
+        <li class="nav-item" routerLinkActive="active" *ngIf="isAuth()">
           <a class="nav-link" routerLink="/contacts">
             <i class="fas fa-user-graduate mr-1"></i>Contactos</a>
         </li>
-        <li class="nav-item" routerLinkActive="active" >
-            <a class="nav-link" routerLink="/register">
-              <i class="fas fa-user-graduate mr-1"></i>Registro</a>
-          </li>
-        <!-- <li class="nav-item" routerLinkActive="active" *ngIf="isAuth()">
+        <li class="nav-item" routerLinkActive="active" *ngIf="isAuth()">
           <a class="nav-link" routerLink="/login" (click)="onLogout()">
             <i class="fas fa-sign-out-alt mr-1"></i>Cerrar sesión</a>
-        </li> -->
+        </li>
       </ul>
     </div>
   </div>

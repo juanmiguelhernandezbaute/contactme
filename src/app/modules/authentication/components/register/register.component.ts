@@ -16,6 +16,24 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   user: User = new User();
 
+  errorsForm = {
+    email: '',
+    password: ''
+  };
+
+  validationMessages = {
+    email: {
+      required: 'Correo obligatorio',
+      email: 'Introduzca un correo electrónico correcto'
+    },
+    password: {
+      required: 'Contraseña obligatoria',
+      pattern: 'La contraseña debe contener al menos un número, una letra mayúscula, una letra minúscula y un caracter especial'
+        + '(Caracteres especiales permitidos "@ $ ! % * ? & .").\n',
+      minlength: 'La contraseña debe contener más de 8 caracteres.\n'
+    }
+  };
+
   constructor(private formBuilder: FormBuilder,
               private authenticationService: AuthenticationService,
               private router: Router,
@@ -34,37 +52,36 @@ export class RegisterComponent implements OnInit {
       ]]
     });
 
-    // this.registerForm.valueChanges.subscribe(data => this.onValueChanged(data));
-    // this.onValueChanged();
+    this.registerForm.valueChanges.subscribe(data => this.onValueChanged(data));
+    this.onValueChanged();
   }
 
-  // onValueChanged(data?: any) {
-  //   if (!this.registerForm) {
-  //     return;
-  //   }
-  //   const form = this.registerForm;
+  onValueChanged(data?: any) {
+    if (!this.registerForm) {
+      return;
+    }
+    const form = this.registerForm;
 
-  //   // tslint:disable-next-line:forin
-  //   for (const field in this.errorsForm) {
-  //     this.errorsForm[field] = '';
-  //     const control = form.get(field);
+    // tslint:disable-next-line:forin
+    for (const field in this.errorsForm) {
+      this.errorsForm[field] = '';
+      const control = form.get(field);
 
-  //     if (control && control.dirty && !control.valid) {
-  //       const messages = this.validationMessages[field];
+      if (control && control.dirty && !control.valid) {
+        const messages = this.validationMessages[field];
 
-  //       // tslint:disable-next-line:forin
-  //       for (const key in control.errors) {
-  //         this.errorsForm[field] += messages[key] + ' ';
-  //       }
-  //     }
-  //   }
-  // }
+        // tslint:disable-next-line:forin
+        for (const key in control.errors) {
+          this.errorsForm[field] += messages[key] + ' ';
+        }
+      }
+    }
+  }
 
   onSubmit() {
     this.user.email = this.registerForm.get('email').value;
     this.user.password = this.registerForm.get('password').value;
     this.authenticationService.registerUser(this.user);
-    this.router.navigate(['/home']);
   }
 
 }

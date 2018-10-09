@@ -33,8 +33,8 @@ import { AuthenticationModule } from './modules/authentication/authentication.mo
     AuthenticationModule
   ],
   providers: [
-    ContactsService,
-    AuthenticationService
+    AuthenticationService,
+    ContactsService
   ],
   bootstrap: [AppComponent]
 })
