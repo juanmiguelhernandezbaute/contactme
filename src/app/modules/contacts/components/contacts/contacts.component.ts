@@ -10,15 +10,29 @@ import { Contact } from '../../models/contact';
 })
 export class ContactsComponent implements OnInit {
 
-  contacts: Contact[];
+  contacts: Contact[] = [];
   loading = true;
 
+  contactSelected: Contact;
+
   constructor(private contactsService: ContactsService) {
-    this.loading = false;
+    this.contactsService.getContacts()
+      .subscribe(contacts => {
+        // tslint:disable-next-line:forin
+        for (const id$ in contacts) {
+          const c = contacts[id$];
+          c.id$ = id$;
+          this.contacts.push(contacts[id$]);
+        }
+        this.loading = false;
+      });
   }
 
   ngOnInit() {
-    this.contacts = this.contactsService.getContacts();
+  }
+
+  selectContact(id$) {
+    this.contactSelected = id$;
   }
 
 }
