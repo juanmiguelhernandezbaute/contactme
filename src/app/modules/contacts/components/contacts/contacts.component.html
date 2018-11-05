@@ -38,8 +38,7 @@
           <a class="btn btn-light m-1" style="width: 40px;" >
             <i class="fas fa-edit"></i>
           </a>
-          <!-- <a class="btn btn-light m-1" style="width: 40px;" data-toggle="modal" data-target="#delStudentModal" (click)="selectStudent(student.id$)"> -->
-          <a class="btn btn-light m-1" style="width: 40px;" data-toggle="modal" data-target="#delStudentModal" >
+          <a class="btn btn-light m-1" style="width: 40px;" data-toggle="modal" data-target="#delContactModal" (click)="selectContact(contact.id$)">
             <i class="fas fa-trash-alt"></i>
           </a>
         </td>
@@ -58,22 +57,22 @@
 </div>
 
 <!-- Modal -->
-<!-- <div class="modal fade" id="delStudentModal" tabindex="-1" role="dialog" aria-labelledby="delStudentModalLabel" aria-hidden="true">
+<div class="modal fade" id="delContactModal" tabindex="-1" role="dialog" aria-labelledby="delContactModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="delStudentModalLabel"> Eliminación de alumnos </h5>
+          <h5 class="modal-title" id="delContactModalLabel"> Eliminación de contactos </h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body text-center">
-          ¿Está seguro que desea eliminar el alumno?
+          ¿Está seguro que desea eliminar el contacto?
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="deleteStudent()">Eliminar</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="deleteContact()">Eliminar</button>
         </div>
       </div>
     </div>
-  </div> -->
+  </div>

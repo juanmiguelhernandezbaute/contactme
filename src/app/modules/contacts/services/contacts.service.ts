@@ -32,4 +32,11 @@ export class ContactsService {
       );
   }
 
+  delContact(id$: string) {
+    const url = `${this.contactURL}/${id$}.json`;
+
+    return this.http.delete(url)
+      .map( response => response.json());
+  }
+
 }
