@@ -5,6 +5,7 @@ import { LoginComponent } from './modules/authentication/components/login/login.
 import { RegisterComponent } from './modules/authentication/components/register/register.component';
 import { HomeComponent } from './common/components/home/home.component';
 import { ContactsComponent } from './modules/contacts/components/contacts/contacts.component';
+import { AddContactComponent } from './modules/contacts/components/add-contact/add-contact.component';
 
 import { GuardService } from './modules/authentication/services/guard.service';
 
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent, canActivate: [GuardService] },
   { path: 'contacts', component: ContactsComponent, canActivate: [GuardService] },
+  { path: 'addContact', component: AddContactComponent},
   { path: '**', redirectTo: 'login' }
 ];
 
