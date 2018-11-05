@@ -1,19 +1,85 @@
-<h3>Listado de Contactos</h3>
-<table class="table table-bordered table-striped mt-3">
-  <thead>
-    <tr class="filters">
-      <th>Nombre</th>
-      <th>Apellidos</th>
-      <th>Teléfono</th>
-      <th>Email</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let contact of contacts">
-      <td>{{ contact.firstName }}</td>
-      <td>{{ contact.lastName }}</td>
-      <td>{{ contact.telephone }}</td>
-      <td><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></td>
-    </tr>
-  </tbody>
-</table>
+<h2>Listado de Contactos
+  <i class="fas fa-users mt-5 mb-3"></i>
+</h2>
+<!-- <div *ngIf="loading" class="text-center" style="padding-top: 60px;">
+  <i class="fas fa-circle-notch fa-spin fa-3x"></i>
+</div> -->
+<div class="table-responsive" *ngIf="!loading">
+  <!-- <a class="btn btn-outline-primary mt-4 mb-2" routerLink="/addStudent">
+    <i class="fas fa-plus-circle"></i>
+    Añadir
+  </a> -->
+  <!-- <table class="table table-striped" [mfData]="students" #mf="mfDataTable" [mfRowsOnPage]="5"> -->
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr class="filters">
+        <th>
+          <!-- <mfDefaultSorter by="firstName">Nombre</mfDefaultSorter> -->
+          Nombre
+        </th>
+        <th>
+          <!-- <mfDefaultSorter by="lastName">Apellidos</mfDefaultSorter> -->
+          Apellidos
+        </th>
+        <th>
+          <!-- <mfDefaultSorter by="email">Correo electrónico</mfDefaultSorter> -->
+          Teléfono
+        </th>
+        <th>
+          <!-- <mfDefaultSorter by="courseId">Curso</mfDefaultSorter> -->
+          Correo electrónico
+        </th>
+        <th style="width: 125px;"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr *ngFor="let student of mf.data "> -->
+      <tr *ngFor="let contact of contacts">
+        <td>{{ contact.firstName }}</td>
+        <td>{{ contact.lastName }}</td>
+        <td>{{ contact.telephone }}</td>
+        <td><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></td>
+        <td>
+          <!-- <a class="btn btn-light m-1" style="width: 40px;" routerLink="/editStudent/{{ student.id$ }}"> -->
+          <a class="btn btn-light m-1" style="width: 40px;" >
+            <i class="fas fa-edit"></i>
+          </a>
+          <!-- <a class="btn btn-light m-1" style="width: 40px;" data-toggle="modal" data-target="#delStudentModal" (click)="selectStudent(student.id$)"> -->
+          <a class="btn btn-light m-1" style="width: 40px;" data-toggle="modal" data-target="#delStudentModal" >
+            <i class="fas fa-trash-alt"></i>
+          </a>
+        </td>
+      </tr>
+
+    </tbody>
+    <!-- <tfoot>
+      <tr>
+        <td colspan="5">
+          <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+        </td>
+      </tr>
+    </tfoot> -->
+
+  </table>
+</div>
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="delStudentModal" tabindex="-1" role="dialog" aria-labelledby="delStudentModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="delStudentModalLabel"> Eliminación de alumnos </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          ¿Está seguro que desea eliminar el alumno?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="deleteStudent()">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div> -->

@@ -15,6 +15,7 @@ import { ContactsService } from './modules/contacts/services/contacts.service';
 import { AuthenticationService } from './modules/authentication/services/authentication.service';
 
 import { AuthenticationModule } from './modules/authentication/authentication.module';
+import { ContactsModule } from './modules/contacts/contacts.module';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { AuthenticationModule } from './modules/authentication/authentication.mo
     ReactiveFormsModule,
     HttpModule,
     AppRoutingModule,
-    AuthenticationModule
+    AuthenticationModule,
+    ContactsModule
   ],
   providers: [
     AuthenticationService,
