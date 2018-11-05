@@ -11,8 +11,11 @@ import { Contact } from '../../models/contact';
 export class ContactsComponent implements OnInit {
 
   contacts: Contact[];
+  loading = true;
 
-  constructor(private contactsService: ContactsService) { }
+  constructor(private contactsService: ContactsService) {
+    this.loading = false;
+  }
 
   ngOnInit() {
     this.contacts = this.contactsService.getContacts();
