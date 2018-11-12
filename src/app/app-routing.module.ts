@@ -5,6 +5,7 @@ import { LoginComponent } from './modules/authentication/components/login/login.
 import { RegisterComponent } from './modules/authentication/components/register/register.component';
 import { ResetPasswordComponent } from './modules/authentication/components/reset-password/reset-password.component';
 import { HomeComponent } from './common/components/home/home.component';
+import { ErrorPageComponent } from './common/components/error-page/error-page.component';
 import { ContactsComponent } from './modules/contacts/components/contacts/contacts.component';
 import { AddContactComponent } from './modules/contacts/components/add-contact/add-contact.component';
 import { EditContactComponent } from './modules/contacts/components/edit-contact/edit-contact.component';
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'contacts', component: ContactsComponent, canActivate: [GuardService] },
   { path: 'addContact', component: AddContactComponent, canActivate: [GuardService] },
   { path: 'editContact/:id', component: EditContactComponent, canActivate: [GuardService] },
-  { path: '**', redirectTo: 'login' }
+  { path: 'notfound', component: ErrorPageComponent },
+  { path: '**', redirectTo: 'notfound' }
 ];
 
 @NgModule({

@@ -14,13 +14,15 @@ import { AuthenticationService } from './modules/authentication/services/authent
 
 import { AuthenticationModule } from './modules/authentication/authentication.module';
 import { ContactsModule } from './modules/contacts/contacts.module';
+import { ErrorPageComponent } from './common/components/error-page/error-page.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
