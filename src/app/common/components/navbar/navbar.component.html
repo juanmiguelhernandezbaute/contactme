@@ -1,5 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand mb-0 h1 text-shadow" href="">
+  <a *ngIf="isAuth()" class="navbar-brand mb-0 h1 text-shadow" routerLink="/home">
+      C<i class="fas fa-user-circle"></i>NTACTME
+  </a>
+  <a *ngIf="!isAuth()" class="navbar-brand mb-0 h1 text-shadow" href="">
       C<i class="fas fa-user-circle"></i>NTACTME
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
