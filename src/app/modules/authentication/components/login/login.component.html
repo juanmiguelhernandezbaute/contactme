@@ -2,7 +2,10 @@
     <div class="col col-md"></div>
     <div class="col-10 col-md-6">
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <h4 class="text-center"> Inicio de sesión </h4>
+        <h4 class="text-center">
+          Inicio de sesión
+          <i class="fas fa-sign-in-alt mt-5 mb-3"></i>
+        </h4>
         <label> Correo Electrónico </label>
         <input type="mail" class="form-control mb-2"
                id="inputEmail" autofocus

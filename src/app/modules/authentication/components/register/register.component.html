@@ -2,7 +2,10 @@
     <div class="col col-md"></div>
     <div class="col-10 col-md-6">
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-        <h4 class="text-center"> Registro de usuarios </h4>
+        <h4 class="text-center">
+          Registro de usuarios
+          <i class="fas fa-pen-alt mt-5 mb-3"></i>
+        </h4>
         <label> Correo Electrónico </label>
         <i class="fa fa-check-circle check"
            *ngIf="registerForm.controls['email'].valid">

@@ -14,8 +14,8 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'contacts', component: ContactsComponent },
+  { path: 'home', component: HomeComponent, canActivate: [GuardService] },
+  { path: 'contacts', component: ContactsComponent, canActivate: [GuardService] },
   { path: 'addContact', component: AddContactComponent, canActivate: [GuardService] },
   { path: 'editContact/:id', component: EditContactComponent, canActivate: [GuardService] },
   { path: '**', redirectTo: 'login' }
