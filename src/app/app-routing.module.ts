@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LoginComponent } from './modules/authentication/components/login/login.component';
 import { RegisterComponent } from './modules/authentication/components/register/register.component';
+import { ResetPasswordComponent } from './modules/authentication/components/reset-password/reset-password.component';
 import { HomeComponent } from './common/components/home/home.component';
 import { ContactsComponent } from './modules/contacts/components/contacts/contacts.component';
 import { AddContactComponent } from './modules/contacts/components/add-contact/add-contact.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'resetPass', component: ResetPasswordComponent },
   { path: 'home', component: HomeComponent, canActivate: [GuardService] },
   { path: 'contacts', component: ContactsComponent, canActivate: [GuardService] },
   { path: 'addContact', component: AddContactComponent, canActivate: [GuardService] },

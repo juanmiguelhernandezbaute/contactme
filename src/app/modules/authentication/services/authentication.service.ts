@@ -45,6 +45,7 @@ export class AuthenticationService {
       return false;
     }
   }
+
   resetPassword(email: string) {
     firebase.auth().sendPasswordResetEmail(email)
       .then(response => {
