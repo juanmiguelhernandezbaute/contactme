@@ -1,23 +1,44 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { Contact } from '../../models/contact';
 
 import { ContactsService } from '../../services/contacts.service';
 
 @Component({
-  selector: 'app-add-contact',
-  templateUrl: './add-contact.component.html',
-  styleUrls: ['./add-contact.component.css']
+  selector: 'app-edit-contact',
+  templateUrl: './edit-contact.component.html',
+  styleUrls: ['./edit-contact.component.css']
 })
-export class AddContactComponent implements OnInit {
+export class EditContactComponent implements OnInit {
 
   contactForm: FormGroup;
   contact: Contact;
   contacts: Contact[] = [];
+  id: string;
 
   constructor(private cf: FormBuilder,
-              private contactsService: ContactsService) { }
+    private contactsService: ContactsService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute) {
+
+    this.activatedRoute.params
+      .subscribe(parameters => {
+        this.id = parameters['id'];
+        this.contactsService.getContact(this.id)
+          .subscribe(contact => this.contact = contact);
+      });
+
+    this.contactsService.getContacts()
+      .subscribe(contacts => {
+        for (const id$ of Object.keys(contacts)) {
+          const s = contacts[id$];
+          s.id$ = id$;
+          this.contacts.push(contacts[id$]);
+        }
+      });
+  }
 
   ngOnInit() {
     this.contactForm = this.cf.group({
@@ -30,9 +51,8 @@ export class AddContactComponent implements OnInit {
 
   onSubmit() {
     this.contact = this.saveContact();
-    this.contactsService.postContact(this.contact)
-      .subscribe(newStudent => {
-
+    this.contactsService.putContact(this.contact, this.id)
+      .subscribe(newCourse => {
       });
     this.contactForm.reset();
   }

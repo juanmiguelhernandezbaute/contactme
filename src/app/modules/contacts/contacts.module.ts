@@ -6,6 +6,7 @@ import { DataTableModule } from 'angular-6-datatable';
 
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { AddContactComponent } from './components/add-contact/add-contact.component';
+import { EditContactComponent } from './components/edit-contact/edit-contact.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { AddContactComponent } from './components/add-contact/add-contact.compon
   ],
   declarations: [
     ContactsComponent,
-    AddContactComponent
+    AddContactComponent,
+    EditContactComponent
   ]
 })
 export class ContactsModule { }

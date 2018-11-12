@@ -32,6 +32,28 @@ export class ContactsService {
       );
   }
 
+  getContact(id$: string) {
+    const url = `${this.contactURL}/${id$}.json`;
+    return this.http.get(url)
+      .map( response => response.json()
+    );
+  }
+
+  putContact(contact: Contact, id$: string) {
+    const newContact = JSON.stringify(contact);
+    const headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+
+    const url = `${this.contactURL}/${id$}.json`;
+
+    return this.http.put(url, newContact, {headers})
+      .map( response => {
+        console.log(response.json());
+        return response.json();
+    });
+  }
+
   delContact(id$: string) {
     const url = `${this.contactURL}/${id$}.json`;
 

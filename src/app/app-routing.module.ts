@@ -6,6 +6,7 @@ import { RegisterComponent } from './modules/authentication/components/register/
 import { HomeComponent } from './common/components/home/home.component';
 import { ContactsComponent } from './modules/contacts/components/contacts/contacts.component';
 import { AddContactComponent } from './modules/contacts/components/add-contact/add-contact.component';
+import { EditContactComponent } from './modules/contacts/components/edit-contact/edit-contact.component';
 
 import { GuardService } from './modules/authentication/services/guard.service';
 
@@ -13,9 +14,10 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'home', component: HomeComponent, canActivate: [GuardService] },
-  { path: 'contacts', component: ContactsComponent, canActivate: [GuardService] },
-  { path: 'addContact', component: AddContactComponent},
+  { path: 'home', component: HomeComponent },
+  { path: 'contacts', component: ContactsComponent },
+  { path: 'addContact', component: AddContactComponent, canActivate: [GuardService] },
+  { path: 'editContact/:id', component: EditContactComponent, canActivate: [GuardService] },
   { path: '**', redirectTo: 'login' }
 ];
 
