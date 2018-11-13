@@ -54,6 +54,7 @@ export class AuthenticationService {
       })
       .catch(error => {
         console.log(error);
+        this.router.navigate(['/error/' + error]);
       });
   }
 

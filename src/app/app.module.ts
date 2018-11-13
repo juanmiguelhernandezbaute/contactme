@@ -15,6 +15,7 @@ import { AuthenticationService } from './modules/authentication/services/authent
 import { AuthenticationModule } from './modules/authentication/authentication.module';
 import { ContactsModule } from './modules/contacts/contacts.module';
 import { ErrorPageComponent } from './common/components/error-page/error-page.component';
+import { GenericErrorPageComponent } from './common/components/generic-error-page/generic-error-page.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ErrorPageComponent } from './common/components/error-page/error-page.co
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    GenericErrorPageComponent
   ],
   imports: [
     BrowserModule,
