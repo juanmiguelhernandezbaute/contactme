@@ -9,19 +9,28 @@ import { AuthenticationService } from '../../../modules/authentication/services/
 })
 export class NavbarComponent implements OnInit {
 
+  user: string;
+
   constructor(private authenticationService: AuthenticationService,
               private router: Router,
               private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.user = '';
   }
 
   isAuth() {
-    return this.authenticationService.isAuthenticated();
+    if (this.authenticationService.isAuthenticated()) {
+      this.user = this.authenticationService.getUser().email;
+      return true;
+    } else {
+      return false;
+    }
   }
 
   onLogout() {
     this.authenticationService.logOut();
+    this.user = '';
     this.router.navigate(['/login']);
   }
 
