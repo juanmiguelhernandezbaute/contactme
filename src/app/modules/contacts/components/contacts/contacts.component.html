@@ -41,7 +41,9 @@
           </a>
         </td>
       </tr>
-
+      <tr *ngIf="mf.data?.length == 0">
+        <td colspan="5" style="text-align: center">La lista de contactos está vacía</td>
+      </tr>
     </tbody>
     <tfoot>
       <tr>
