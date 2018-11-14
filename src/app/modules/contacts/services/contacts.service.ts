@@ -27,11 +27,11 @@ export class ContactsService {
       });
   }
 
-  getContacts() {
-    return this.http.get(this.contactsURL)
-      .map( response => response.json()
-      );
-  }
+  // getContacts() {
+  //   return this.http.get(this.contactsURL)
+  //     .map( response => response.json()
+  //     );
+  // }
 
   getContactsByUser(user$: string) {
     const url = `${this.contactsURL}?orderBy="user"&equalTo="${user$}"`;

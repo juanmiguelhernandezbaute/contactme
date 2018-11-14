@@ -32,7 +32,7 @@ export class EditContactComponent implements OnInit {
           .subscribe(contact => this.contact = contact);
       });
 
-    this.contactsService.getContacts()
+    this.contactsService.getContactsByUser(this.authenticationService.getUser().uid.toString())
       .subscribe(contacts => {
         for (const id$ of Object.keys(contacts)) {
           const s = contacts[id$];

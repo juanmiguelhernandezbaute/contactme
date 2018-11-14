@@ -43,7 +43,7 @@ export class ContactsComponent implements OnInit {
     this.contactsService.delContact(this.contactSelected)
       .subscribe( response => {
         this.contacts = [];
-        this.contactsService.getContacts()
+        this.contactsService.getContactsByUser(this.authenticationService.getUser().uid.toString())
           .subscribe(contacts => {
             // tslint:disable-next-line:forin
             for (const id$ in contacts) {
