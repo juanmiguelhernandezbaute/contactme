@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ContactsService } from '../../services/contacts.service';
+import { AuthenticationService } from '../../../authentication/services/authentication.service';
 import { Contact } from '../../models/contact';
 
 @Component({
@@ -15,8 +16,11 @@ export class ContactsComponent implements OnInit {
 
   contactSelected: any;
 
-  constructor(private contactsService: ContactsService) {
-    this.contactsService.getContacts()
+  contactos: any;
+
+  constructor(private contactsService: ContactsService,
+    private authenticationService: AuthenticationService) {
+    this.contactsService.getContactsByUser(this.authenticationService.getUser().uid.toString())
       .subscribe(contacts => {
         // tslint:disable-next-line:forin
         for (const id$ in contacts) {

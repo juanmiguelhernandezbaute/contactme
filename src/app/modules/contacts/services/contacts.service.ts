@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http, Response } from '@angular/http';
 import 'rxjs/RX';
+import * as firebase from 'firebase';
 import { Contact } from '../models/contact';
 
 @Injectable({
@@ -30,6 +31,13 @@ export class ContactsService {
     return this.http.get(this.contactsURL)
       .map( response => response.json()
       );
+  }
+
+  getContactsByUser(user$: string) {
+    const url = `${this.contactsURL}?orderBy="user"&equalTo="${user$}"`;
+    return this.http.get(url)
+      .map( response => response.json()
+    );
   }
 
   getContact(id$: string) {

@@ -4,6 +4,7 @@ import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { Contact } from '../../models/contact';
 
 import { ContactsService } from '../../services/contacts.service';
+import { AuthenticationService } from '../../../authentication/services/authentication.service';
 
 @Component({
   selector: 'app-add-contact',
@@ -17,7 +18,8 @@ export class AddContactComponent implements OnInit {
   contacts: Contact[] = [];
 
   constructor(private cf: FormBuilder,
-              private contactsService: ContactsService) { }
+              private contactsService: ContactsService,
+              private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
     this.contactForm = this.cf.group({
@@ -42,7 +44,8 @@ export class AddContactComponent implements OnInit {
       firstName: this.contactForm.get('firstName').value,
       lastName: this.contactForm.get('lastName').value,
       telephone: this.contactForm.get('telephone').value,
-      email: this.contactForm.get('email').value
+      email: this.contactForm.get('email').value,
+      user: this.authenticationService.getUser().uid.toString()
     };
     return contact;
   }

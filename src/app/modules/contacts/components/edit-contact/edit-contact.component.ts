@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Contact } from '../../models/contact';
 
 import { ContactsService } from '../../services/contacts.service';
+import { AuthenticationService } from '../../../authentication/services/authentication.service';
 
 @Component({
   selector: 'app-edit-contact',
@@ -20,6 +21,7 @@ export class EditContactComponent implements OnInit {
 
   constructor(private cf: FormBuilder,
     private contactsService: ContactsService,
+    private authenticationService: AuthenticationService,
     private router: Router,
     private activatedRoute: ActivatedRoute) {
 
@@ -62,7 +64,8 @@ export class EditContactComponent implements OnInit {
       firstName: this.contactForm.get('firstName').value,
       lastName: this.contactForm.get('lastName').value,
       telephone: this.contactForm.get('telephone').value,
-      email: this.contactForm.get('email').value
+      email: this.contactForm.get('email').value,
+      user: this.authenticationService.getUser().uid.toString()
     };
     return contact;
   }
