@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     firebase.initializeApp(environment.firebase);
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
   }
 
 }
